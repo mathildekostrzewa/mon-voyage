@@ -76,3 +76,8 @@ footer {
     text-align: center;
     padding: 20px;
 }
+
+.emoji-marker {
+    font-size: 40px;
+    text-align: center;
+}

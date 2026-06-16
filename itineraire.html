@@ -2,9 +2,21 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Itinéraire</title>
+    <title>Mon itinéraire</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+    <style>
+        #map {
+            height: 700px;
+            border-radius: 10px;
+        }
+    </style>
 </head>
+
 <body>
 
 <nav>
@@ -16,17 +28,47 @@
 
 <main>
 
-<h1>Mon Itinéraire</h1>
+<h1>Mon voyage en Nouvelle-Zélande</h1>
 
-<ul class="itineraire">
-    <li>📍 Paris</li>
-    <li>✈️ Auckland</li>
-    <li>✈️ Christchurch</li>
-    <li>✈️ Auckland</li>
-    <li>✈️ Paris</li>
-</ul>
+<div id="map"></div>
 
 </main>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+
+const map = L.map('map').setView([-41.3, 174.7], 5);
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap'
+}).addTo(map);
+
+const punaiseEmoji = L.divIcon({
+    html: "📍",
+    className: "emoji-marker",
+    iconSize: [30, 30],
+    iconAnchor: [15, 30]
+});
+
+const punaiseRouge = L.icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
+
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34]
+});
+
+/* Auckland */
+L.marker([-36.8485, 174.7633], {
+    icon: punaiseEmoji
+})
+ .addTo(map)
+ .bindPopup("<b>Auckland</b><br>Début du voyage");
+
+
+</script>
 
 </body>
 </html>
