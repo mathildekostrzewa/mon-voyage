@@ -81,3 +81,30 @@ footer {
     font-size: 40px;
     text-align: center;
 }
+
+.carte-container {
+    position: relative;
+    width: 800px;
+    max-width: 100%;
+    margin: 30px auto;
+}
+
+.carte {
+    width: 100%;
+    display: block;
+}
+
+.punaise {
+    position: absolute;
+    font-size: 35px;
+    transform: translate(-50%, -100%);
+}
+
+/* Coordonnées à ajuster selon votre image */
+
+.auckland {
+    top: 26%;
+    left: 60.4%;
+}
+
+
